@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.2
+
+- Enlarges the Windows desktop icon artwork so it better matches standard app icon scale.
+
 ## v1.0.1
 
 - Rebuilds the Windows icon with a transparent background so it no longer appears as a white square on the desktop.
