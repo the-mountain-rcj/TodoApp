@@ -38,6 +38,7 @@ try {
         --clean `
         --onefile `
         --windowed `
+        --icon "$ProjectRoot\assets\icons\todoapp.ico" `
         --name TodoApp `
         --distpath "$ProjectRoot\dist" `
         --workpath "$ProjectRoot\build" `
