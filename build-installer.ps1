@@ -16,6 +16,7 @@ function Find-InnoSetup {
     }
 
     $Candidates = @(
+        "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe",
         "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe",
         "$env:ProgramFiles\Inno Setup 6\ISCC.exe"
     )
@@ -49,6 +50,9 @@ try {
 
     $Iscc = Find-InnoSetup
     & $Iscc "/DMyAppVersion=$Version" $SetupScript
+    if ($LASTEXITCODE -ne 0) {
+        throw "Inno Setup failed with exit code $LASTEXITCODE"
+    }
 
     $Cert = Get-SigningCertificate
     if ($Cert) {
