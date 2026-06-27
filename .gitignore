@@ -1,0 +1,49 @@
+# Python and build cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# User data and local caches
+data/
+*.broken-*.json
+
+# Build outputs
+build/
+dist/
+build_folder/
+dist_folder/
+*.spec
+*.exe
+*.lnk
+
+# Local launch helpers and prototypes
+app.py
+RunTodoApp.cmd
+RunTodoApp.vbs
+
+# Certificates and signing secrets
+*.pfx
+*.p12
+*.pvk
+*.key
+*.pem
+*.cer
+
+# Local design/reference artifacts that may contain private task text
+design/
+scroll_indicator_preview.svg
+stitch_apple_style_offline_todoapp.zip
+
+# Generated logo capture artifacts not needed at runtime
+assets/logo/todolist-logo/*
+!assets/logo/todolist-logo/logo.svg
+!assets/logo/todolist-logo/motion.css
+!assets/logo/todolist-logo/preview.png
+
+# Editor and OS files
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store

@@ -1,0 +1,280 @@
+#mark,
+#card,
+#task-dot-1,
+#task-dot-2,
+#task-dot-3,
+#task-line-1,
+#task-line-2,
+#task-line-3,
+#check-circle,
+#check-stroke {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-fill-mode: both;
+}
+
+#mark {
+  animation: mark-settle 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#card {
+  animation: card-in 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#task-dot-1,
+#task-dot-2,
+#task-dot-3 {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+#task-dot-1 {
+  animation: dot-pop-1 3000ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+#task-dot-2 {
+  animation: dot-pop-2 3000ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+#task-dot-3 {
+  animation: dot-pop-3 3000ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+#task-line-1,
+#task-line-2,
+#task-line-3,
+#check-stroke,
+.word-reveal {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+}
+
+#task-line-1 {
+  animation: task-line-1-write 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#task-line-2 {
+  animation: task-line-2-write 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#task-line-3 {
+  animation: task-line-3-write 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#check-circle {
+  opacity: 0;
+  transform: scale(0.45);
+  animation: check-circle-pop 3000ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+#check-stroke {
+  animation: check-stroke-write 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-d-stem {
+  animation: reveal-d-stem 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-d-bowl {
+  animation: reveal-d-bowl 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-o-loop {
+  animation: reveal-o-loop 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-n-left {
+  animation: reveal-n-left 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-n-diagonal {
+  animation: reveal-n-diagonal 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-n-right {
+  animation: reveal-n-right 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-e-stem {
+  animation: reveal-e-stem 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-e-top {
+  animation: reveal-e-top 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-e-mid {
+  animation: reveal-e-mid 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#reveal-e-bottom {
+  animation: reveal-e-bottom 3000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes mark-settle {
+  0% { transform: translateY(10px); }
+  22% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes card-in {
+  0% { opacity: 0; transform: scale(0.94); }
+  15% { opacity: 1; transform: scale(1.015); }
+  27%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dot-pop-1 {
+  0%, 8% { opacity: 0; transform: scale(0.4); }
+  17% { opacity: 1; transform: scale(1.16); }
+  29%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dot-pop-2 {
+  0%, 17% { opacity: 0; transform: scale(0.4); }
+  26% { opacity: 1; transform: scale(1.16); }
+  38%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dot-pop-3 {
+  0%, 26% { opacity: 0; transform: scale(0.4); }
+  35% { opacity: 1; transform: scale(1.16); }
+  47%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes task-line-1-write {
+  0%, 12% { stroke-dashoffset: 1; }
+  29%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes task-line-2-write {
+  0%, 21% { stroke-dashoffset: 1; }
+  38%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes task-line-3-write {
+  0%, 30% { stroke-dashoffset: 1; }
+  47%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes check-circle-pop {
+  0%, 36% { opacity: 0; transform: scale(0.45); }
+  51% { opacity: 1; transform: scale(1.08); }
+  64%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes check-stroke-write {
+  0%, 46% { opacity: 0; stroke-dashoffset: 1; }
+  50% { opacity: 1; }
+  66%, 100% { opacity: 1; stroke-dashoffset: 0; }
+}
+
+@keyframes reveal-d-stem {
+  0%,
+  30% {
+    stroke-dashoffset: 1;
+  }
+
+  41%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-d-bowl {
+  0%,
+  38% {
+    stroke-dashoffset: 1;
+  }
+
+  52%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-o-loop {
+  0%,
+  49% {
+    stroke-dashoffset: 1;
+  }
+
+  66%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-n-left {
+  0%,
+  62% {
+    stroke-dashoffset: 1;
+  }
+
+  72%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-n-diagonal {
+  0%,
+  69% {
+    stroke-dashoffset: 1;
+  }
+
+  82%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-n-right {
+  0%,
+  78% {
+    stroke-dashoffset: 1;
+  }
+
+  88%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-e-stem {
+  0%,
+  84% {
+    stroke-dashoffset: 1;
+  }
+
+  92%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-e-top {
+  0%,
+  88% {
+    stroke-dashoffset: 1;
+  }
+
+  96%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-e-mid {
+  0%,
+  91% {
+    stroke-dashoffset: 1;
+  }
+
+  98%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-e-bottom {
+  0%,
+  94% {
+    stroke-dashoffset: 1;
+  }
+
+  100%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
