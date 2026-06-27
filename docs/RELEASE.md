@@ -57,7 +57,7 @@ git tag v1.0.0
 git push origin main --tags
 ```
 
-The GitHub Actions workflow builds and uploads the release assets automatically.
+The GitHub Actions workflow builds unsigned CI artifacts by default. Upload signed release assets from your local machine, or set the repository secret `TODOAPP_UPLOAD_RELEASE=true` only after trusted signing is configured in CI.
 
 ## 6. Pre-publish check
 

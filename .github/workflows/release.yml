@@ -11,6 +11,8 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      TODOAPP_UPLOAD_RELEASE: ${{ secrets.TODOAPP_UPLOAD_RELEASE }}
 
     steps:
       - name: Checkout
@@ -30,7 +32,17 @@ jobs:
           $version = "${{ github.ref_name }}".TrimStart("v")
           ./build-installer.ps1 -Version $version
 
+      - name: Upload unsigned CI artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: todoapp-windows-unsigned
+          path: |
+            dist/TodoAppSetup.exe
+            dist/TodoAppSetup.exe.sha256
+            dist/TodoApp.exe
+
       - name: Upload GitHub Release assets
+        if: ${{ env.TODOAPP_UPLOAD_RELEASE == 'true' }}
         uses: softprops/action-gh-release@v2
         with:
           files: |

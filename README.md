@@ -85,7 +85,7 @@ git tag v1.0.0
 git push origin main --tags
 ```
 
-The workflow uploads `TodoAppSetup.exe`, `TodoAppSetup.exe.sha256`, and `TodoApp.exe` to the release.
+By default, the workflow builds unsigned CI artifacts and does not overwrite manually uploaded release assets. Set the repository secret `TODOAPP_UPLOAD_RELEASE=true` only after you have configured trusted signing for public releases.
 
 ## Privacy
 
