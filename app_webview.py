@@ -834,7 +834,11 @@ HTML = r"""
         linear-gradient(180deg, rgba(248,250,255,.98) 0%, rgba(248,250,255,.94) 82%, rgba(248,250,255,0) 100%);
       backdrop-filter: blur(18px) saturate(1.16);
     }
-    .hero-copy { min-width: 0; }
+    .hero-copy {
+      --logo-width: clamp(360px, 36vw, 500px);
+      --logo-mark-shift: clamp(-96px, -6.75vw, -72px);
+      min-width: 0;
+    }
     h1 {
       margin: 0;
       font-size: clamp(44px, 4.2vw, 66px);
@@ -856,9 +860,9 @@ HTML = r"""
     }
     .title-logo {
       display: block;
-      width: clamp(330px, 34vw, 470px);
-      height: 132px;
-      margin: -24px 0 -12px -28px;
+      width: var(--logo-width);
+      height: 142px;
+      margin: 8px 0 -2px var(--logo-mark-shift);
       user-select: none;
       border: 0;
       padding: 0;
@@ -880,14 +884,6 @@ HTML = r"""
       border-radius: 28px;
     }
     __LOGO_MOTION_CSS__
-    .subtitle {
-      margin-top: 14px;
-      margin-left: 96px;
-      font-size: 15px;
-      font-weight: 680;
-      color: var(--muted);
-      letter-spacing: .01em;
-    }
     .hero-actions {
       display: flex;
       align-items: center;
@@ -1430,16 +1426,11 @@ HTML = r"""
       min-width: 0;
       text-align: center;
     }
-    .calendar-title {
-      font-size: 22px;
-      font-weight: 830;
-      margin: 0;
-    }
     .calendar-month {
-      margin-top: 6px;
+      margin-top: 0;
       color: var(--muted);
-      font-size: 12px;
-      font-weight: 760;
+      font-size: 15px;
+      font-weight: 800;
     }
     .month-arrow {
       width: 38px;
@@ -1713,7 +1704,6 @@ HTML = r"""
             __LOGO_MARKUP__
           </button>
           <h1 id="title" class="sr-only">今日任务</h1>
-          <div class="subtitle" id="subtitle"></div>
         </div>
         <div class="hero-actions">
           <button class="pill" id="calendarToggle" title="显示或隐藏日历"><span class="calendar-icon"></span><span>日历</span></button>
@@ -1731,7 +1721,6 @@ HTML = r"""
         <div class="calendar-nav">
           <button class="month-arrow" id="prevMonth" title="上个月">‹</button>
           <div class="calendar-title-wrap">
-            <h2 class="calendar-title">日历视图</h2>
             <div class="calendar-month" id="calendarMonth"></div>
           </div>
           <button class="month-arrow" id="nextMonth" title="下个月">›</button>
@@ -1759,7 +1748,6 @@ HTML = r"""
     const main = document.getElementById('main');
     const list = document.getElementById('list');
     const title = document.getElementById('title');
-    const subtitle = document.getElementById('subtitle');
     const calendarGrid = document.getElementById('calendarGrid');
     const calendarMonth = document.getElementById('calendarMonth');
     const prevMonth = document.getElementById('prevMonth');
@@ -1898,7 +1886,6 @@ HTML = r"""
     function render() {
       if (!state) return;
       title.textContent = state.is_today ? '今日任务' : '这一天的待办';
-      subtitle.textContent = `${state.pretty_date} · ${state.is_today ? '今日' : '历史'} · 周${state.weekday} · 本地离线保存`;
       remainingCount.textContent = state.progress.remaining;
       doneCount.textContent = state.progress.done;
       deletedCount.textContent = state.deleted_count || 0;
