@@ -823,6 +823,7 @@ HTML = r"""
       position: sticky;
       top: 0;
       z-index: 20;
+      isolation: isolate;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -830,9 +831,27 @@ HTML = r"""
       padding-right: 8px;
       border-bottom: 1px solid var(--line);
       padding-bottom: 28px;
-      background:
-        linear-gradient(180deg, rgba(248,250,255,.98) 0%, rgba(248,250,255,.94) 82%, rgba(248,250,255,0) 100%);
+      background: rgba(248,250,255,.985);
       backdrop-filter: blur(18px) saturate(1.16);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -54px -42px 0 -96px;
+      z-index: -1;
+      background: rgba(248,250,255,.985);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -96px;
+      right: -42px;
+      bottom: -36px;
+      height: 36px;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(248,250,255,.94), rgba(248,250,255,0));
+      pointer-events: none;
     }
     .hero-copy {
       --logo-width: clamp(360px, 36vw, 500px);
