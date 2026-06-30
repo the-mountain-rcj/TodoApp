@@ -1038,8 +1038,15 @@ HTML = r"""
       will-change: transform;
     }
     .task-card.urgent {
-      border-color: rgba(255,59,48,.56);
-      box-shadow: 0 28px 58px rgba(255,59,48,.13), 0 5px 18px rgba(11,27,58,.06);
+      border-color: rgba(255,69,58,.48);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.94), rgba(248,250,255,.88)) padding-box,
+        linear-gradient(135deg, rgba(255,59,48,.44), rgba(255,45,85,.48)) border-box;
+      box-shadow: 0 28px 58px rgba(255,59,48,.12), 0 5px 18px rgba(255,45,85,.06);
+    }
+    .task-card.urgent:hover {
+      border-color: rgba(255,69,58,.62);
+      box-shadow: 0 34px 68px rgba(255,59,48,.15), 0 6px 22px rgba(255,45,85,.08);
     }
     .task-card.week {
       border-color: rgba(94,92,230,.48);
@@ -1054,7 +1061,9 @@ HTML = r"""
     }
     .task-card.urgent.week {
       border-color: rgba(255,59,48,.56);
-      background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(248,250,255,.9));
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.94), rgba(248,250,255,.88)) padding-box,
+        linear-gradient(135deg, rgba(255,59,48,.44), rgba(255,45,85,.48)) border-box;
       box-shadow: 0 28px 58px rgba(255,59,48,.13), 0 5px 18px rgba(11,27,58,.06);
     }
     .check {
@@ -1306,7 +1315,7 @@ HTML = r"""
       transition: all .18s ease;
     }
     .due-btn.urgent.active {
-      background: var(--red);
+      background: linear-gradient(135deg, var(--red), #ff2d55);
       color: white;
       box-shadow: 0 14px 24px rgba(255,59,48,.26);
     }
